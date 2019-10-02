@@ -1,0 +1,67 @@
+
+
+=====================================================================================================
+from dirtab.cpp:
+
+bool get_thumbnail(std::string sd, Image &pic)
+{
+	pic.Clear();
+	std::string sp{};
+	std::string sf{};
+	sf=path_name(sd);
+	SanitizeName(sf);
+	if (!sieqs(file_extension(sf), "png")) sf+=".png";
+	sp=path_append(homedir(), ".thumbnails/DFM");
+	sp=path_append(sp, sf);
+	if (file_exist(sp)) pic=StreamRaster::LoadFileAny(sp.c_str());
+	return !pic.IsNullInstance();
+}
+
+void set_thumbnail(std::string sd, Image pic)
+{
+	std::string sp{};
+	sp=path_append(homedir(), ".thumbnails/DFM");
+	if (issubdir(sd, sp)) return;
+	std::string sf{};
+	sf=path_name(sd);
+	SanitizeName(sf);
+	if (!sieqs(file_extension(sf), "png")) sf+=".png";
+	if (path_realize(sp))
+	{
+		sp=path_append(sp, sf);
+		PNGEncoder encoder;
+		encoder.SaveFile(sp.c_str(), pic);
+	}
+}
+
+Image DirectoryTab::get_item_icon(std::string sd)
+{
+	Image pic;
+	if (!pDFM->mai.GetIcon(sd, pic))
+	{
+		if (ispicture(sd))
+		{
+			//if (!get_thumbnail(sd, pic))
+			//{
+			//	pic=StreamRaster::LoadFileAny(sd.c_str());
+			//	if (!pic.IsNullInstance()) set_thumbnail(sd, pic);
+			//}
+			//if (pic.IsNullInstance())
+			 pic=GetPic(PICGRAPHIC);
+		}
+		else if (issound(sd)) pic=GetPic(PICAUDIO);
+		else if (isvideo(sd)) pic=GetPic(PICVIDEO);
+		else if (isarchive(sd)) pic=GetPic(PICARCHIVE);
+		else if (ispdf(sd)) pic=GetPic(PICPDF);
+		else if (isdocument(sd)) pic=GetPic(PICDOC);
+		else if (isdatabase(sd)) pic=GetPic(PICDATA);
+		else if (issourcecode(sd)) pic=GetPic(PICCODE);
+		else if (iswebfile(sd)) pic=GetPic(PICWEB);
+		else if (canexecute(sd)) pic=GetPic(PICFILERUN);
+		else pic=GetPic(PICFILE);
+	}
+	elastic_resize(pic, 20, 20);
+	return pic;
+}
+
+

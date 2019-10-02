@@ -1,0 +1,36 @@
+LAYOUT(dfmLayout, 200, 100)
+END_LAYOUT
+
+LAYOUT(customlayout, 524, 444)
+	ITEM(Label, dv___0, SetLabel(t_("Associate:")).LeftPosZ(8, 56).TopPosZ(8, 19))
+	ITEM(EditString, dv___1, HSizePosZ(64, 32).TopPosZ(8, 19))
+	ITEM(Label, dv___2, SetLabel(t_("Mimetype:")).SetAlign(ALIGN_RIGHT).LeftPosZ(8, 56).TopPosZ(32, 19))
+	ITEM(EditString, dv___3, SetEditable(false).HSizePosZ(64, 32).TopPosZ(32, 19))
+	ITEM(Label, dv___4, SetLabel(t_("With Executable:")).LeftPosZ(8, 88).TopPosZ(64, 19))
+	ITEM(EditString, dv___5, HSizePosZ(96, 32).TopPosZ(64, 19))
+	ITEM(Button, dv___6, SetLabel(t_("..")).SetFont(StdFont().Bold()).LeftPosZ(496, 20).TopPosZ(8, 20))
+	ITEM(Button, dv___7, SetLabel(t_("..")).SetFont(StdFont().Bold()).LeftPosZ(496, 20).TopPosZ(64, 20))
+	ITEM(ArrayCtrl, arList, Header(false).AutoHideSb(true).VertGrid(false).HorzGrid(false).SetFrame(BlackFrame()).HSizePosZ(96, 32).TopPosZ(84, 88))
+END_LAYOUT
+
+LAYOUT(findLayout, 488, 480)
+	ITEM(Label, dv___0, SetLabel(t_("In Dir:")).LeftPosZ(8, 32).TopPosZ(4, 19))
+	ITEM(EditString, ebDir, HSizePosZ(44, 32).TopPosZ(4, 19))
+	ITEM(Button, btnBrowse, SetLabel(t_("...")).RightPosZ(8, 20).TopPosZ(4, 20))
+	ITEM(Option, optSubs, SetLabel(t_("Include sub-directories")).LeftPosZ(44, 152).TopPosZ(28, 16))
+	ITEM(Switch, radFG, SetLabel(t_("Name like ..\nContaining ..")).LeftPosZ(12, 164).TopPosZ(52, 20))
+	ITEM(EditString, ebFind, LeftPosZ(176, 144).TopPosZ(52, 19))
+	ITEM(Option, optCase, SetLabel(t_("Case sensitive")).LeftPosZ(324, 92).TopPosZ(52, 20))
+	ITEM(Button, btnFind, SetLabel(t_("Find")).LeftPosZ(420, 56).TopPosZ(52, 20))
+	ITEM(ArrayCtrl, arFind, HSizePosZ(4, 4).VSizePosZ(80, 44))
+	ITEM(Button, btnClose, SetLabel(t_("Close")).RightPosZ(20, 60).BottomPosZ(12, 20))
+	ITEM(Label, lblWhat, HSizePosZ(4, 96).BottomPosZ(24, 16))
+	ITEM(ProgressIndicator, prog, HSizePosZ(4, 96).BottomPosZ(8, 12))
+END_LAYOUT
+
+LAYOUT(findprogressLayout, 412, 84)
+	ITEM(Label, lblSearch, HSizePosZ(8, 12).TopPosZ(8, 19))
+	ITEM(ProgressIndicator, piSearch, HSizePosZ(8, 12).TopPosZ(32, 12))
+	ITEM(Button, btnCancel, SetLabel(t_("Cancel")).RightPosZ(12, 60).BottomPosZ(12, 20))
+END_LAYOUT
+

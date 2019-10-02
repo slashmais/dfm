@@ -1,0 +1,57 @@
+description "disk/device-file-manager\377";
+
+uses
+	CtrlLib,
+	utilfuncs,
+	TreeGrid,
+	runner,
+	watcher,
+	HoM,
+	plugin/gif,
+	plugin/jpg,
+	HexView,
+	plugin/gif,
+	plugin/jpg,
+	filedirdiff;
+
+file
+	main.cpp,
+	scrap_heap.backup,
+	VersionRBT.h,
+	dfm.h,
+	dfm.cpp,
+	dfm.lay,
+	dfm.iml,
+	mimeappico.h,
+	mimeappico.cpp,
+	tabtype.h,
+	tabber.h,
+	tabber.cpp,
+	cd_oc.h,
+	cd_oc.cpp,
+	processes.h,
+	processes.cpp,
+	processtab.h,
+	processtab.cpp,
+	devices.h,
+	devices.cpp,
+	devicetab.h,
+	devicetab.cpp,
+	dirtab.h,
+	dirtab.cpp,
+	props.lay,
+	dirprops.h,
+	dirprops.cpp,
+	pictures.h,
+	pictures.cpp,
+	picbutton.h,
+	picbutton.cpp,
+	finddlg.h,
+	finddlg.cpp,
+	secdel.h,
+	secdel.cpp;
+
+mainconfig
+	"" = "GUI MT",
+	"" = "";
+
